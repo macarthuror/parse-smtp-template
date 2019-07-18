@@ -23,19 +23,15 @@
 <br />
 <p align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="logo.png" alt="Logo" width="80" height="80">
+    <img src="logo.png" alt="Logo" width="80" height="80" />
   </a>
 
   <h3 align="center">Parse SMTP Template</h3>
 
   <p align="center">
-    An awesome README template to jumpstart your projects!
-    <br />
-    <a href="https://github.com/macarthuror/parse-smtp-template"><strong>Explore the docs »</strong></a>
+    An easy way to send email templates via SMTP with your <a href="https://github.com/parse-community/parse-server">Parse Server</a>!
     <br />
     <br />
-    <a href="https://github.com/macarthuror/parse-smtp-template">View Demo</a>
-    ·
     <a href="https://github.com/macarthuror/parse-smtp-template/issues">Report Bug</a>
     ·
     <a href="https://github.com/macarthuror/parse-smtp-template/issues">Request Feature</a>
@@ -64,24 +60,15 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+<!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
-There are many great README templates available on GitHub, however, I didn't find one that really suit my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need.
+This is a module maded it for Parse Server and an easy solution to send emails via SMTP with templates in HTML.
 
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should element DRY principles to the rest of your life :smile:
-
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue with the tag.
-
-A list of commonly used resources that I find helpful are listed in the acknowledgements.
+We recomend to use the [Cerberus](https://github.com/TedGoas/Cerberus) for the email templates.
 
 ### Built With
-This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-* [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
-* [Laravel](https://laravel.com)
+
+* [Nodemailer](https://nodemailer.com)
 
 
 
@@ -91,45 +78,108 @@ This section should list any major frameworks that you built your project using.
 This is an example of how you may give instructions on setting up your project locally.
 To get a local copy up and running follow these simple example steps.
 
-### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-```sh
-npm install npm@latest -g
-```
-
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-```sh
-git clone https:://github.com/your_username_/Project-Name.git
-```
-3. Install NPM packages
-```sh
-npm install
-```
-4. Enter your API in `config.js`
-```JS
-const API_KEY = 'ENTER YOUR API';
-```
+1. Install the package
 
+npm
+```sh
+npm i parse-smtp-template
+```
+yarn
+```sh
+yarn add parse-smtp-template
+```
+2. In your Parse Server add the configuration of your email account
 
+```
+var api = new ParseServer({
+    ...
+    emailAdapter: {
+        module: 'parse-smtp-template',
+        options: {
+            port: 587,
+            host: "smtp.mail.com",
+            user: "name@domain.com",
+            password: "SecurePassword",
+            fromAddress: 'app@domain.com',
+
+            // Optional Parameters
+            template: true,
+            templatePath: "views/templates/main.html",
+            passwordSubject: "A custom password recovery Subject",
+            confirmSubject: "A custom email confirmation Subject"
+        }
+    }
+})
+```
+> Now is ready to use it!
+
+3. (Optional) Config your email template 
+
+The templates have access to 4 parameters to send
+* link
+* username
+* appName
+* subject
+
+To use it you only need to write ${parameter} to use it on the email
+
+**IMPORTANT** -- **All the HTML file need to use only double quotes to avoid problems**
 
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+To use a custome template is necessary to select the correct file.
+In this example we are gonna use `template.html``
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+index.js
+```
+emailAdapter: {
+  module: 'parse-smtp-template',
+  options: {
+    ...
+    template: true,
+    templatePath: "views/templates/template.html"
+  }
+}
 
-
+```
+directory
+```
+project
+│   index.js   
+│
+└─ views
+│   └─ templates
+│       └─ template.html
+|
+└─ node_modules
+|
+```
+`template.html`
+```
+...
+<tr>
+  <td style="padding: 20px; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555;">
+  <h1 style="margin: 0 0 10px; font-size: 25px; line-height: 30px; color: #333333; font-weight: normal;">  ${subject}  </h1>
+  <br>
+  <ul style="padding: 0; margin: 0; list-style-type: disc;">
+  <li style="margin:0 0 10px 30px;" class="list-item-first">App name: <b>  ${appName}  </b></li>
+  <li style="margin:0 0 10px 30px;">Username: <b>  ${username}  </b></li>
+  <li style="margin: 0 0 10px 30px;">link:</li>
+  <li style="margin: 0 0 0 30px;" class="list-item-last">  ${link}  </li>
+  </ul>
+  </td>
+</tr>
+...
+```
+> You can look up the template is by default in the templates folder to get a better understanding
 
 <!-- ROADMAP -->
 ## Roadmap
 
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/macarthuror/parse-smtp-template/issues) for a list of proposed features (and known issues).
 
 
 
@@ -156,27 +206,15 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
+Arturo Ortega - [@MacarthurOr](https://twitter.com/MacarthurOr) - arturo.ortegaro@gmail.com
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+Project Link: [https://github.com/macarthuror/parse-smtp-template](https://github.com/macarthuror/parse-smtp-template)
 
 
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
-* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-* [Img Shields](https://shields.io)
-* [Choose an Open Source License](https://choosealicense.com)
-* [GitHub Pages](https://pages.github.com)
-* [Animate.css](https://daneden.github.io/animate.css)
-* [Loaders.css](https://connoratherton.com/loaders)
-* [Slick Carousel](https://kenwheeler.github.io/slick)
-* [Smooth Scroll](https://github.com/cferdinandi/smooth-scroll)
-* [Sticky Kit](http://leafo.net/sticky-kit)
-* [JVectorMap](http://jvectormap.com)
-* [Font Awesome](https://fontawesome.com)
-
-
+* [Cerberus](https://github.com/TedGoas/Cerberus)
 
 
 
@@ -185,9 +223,9 @@ Project Link: [https://github.com/your_username/repo_name](https://github.com/yo
 [build-shield]: https://img.shields.io/badge/build-passing-brightgreen.svg?style=flat-square
 [build-url]: #
 [contributors-shield]: https://img.shields.io/badge/contributors-1-orange.svg?style=flat-square
-[contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
+[contributors-url]: https://github.com/macarthuror/parse-smtp-template/graphs/contributors
 [license-shield]: https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square
 [license-url]: https://choosealicense.com/licenses/mit
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/othneildrew
+[linkedin-url]: https://linkedin.com/in/ortegaarturo
 [product-screenshot]: https://raw.githubusercontent.com/othneildrew/Best-README-Template/master/screenshot.png

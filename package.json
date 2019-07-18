@@ -1,5 +1,5 @@
 {
-  "name": "@macarthur.or/parse-smtp-template",
+  "name": "parse-smtp-template",
   "version": "1.0.0",
   "description": "Parse Server Module to easy send emails via SMTP with a customizable template option",
   "main": "index.js",
@@ -27,5 +27,6 @@
   "homepage": "https://github.com/macarthuror/parse-smtp-template#readme",
   "dependencies": {
     "nodemailer": "4.7.0"
-  }
+  },
+  "devDependencies": {}
 }
