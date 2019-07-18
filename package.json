@@ -1,0 +1,28 @@
+{
+  "name": "@macarthur.or/parse-smtp-template",
+  "version": "1.0.0",
+  "description": "Parse Server Module to easy send emails via SMTP with a customizable template option",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/macarthuror/parse-smtp-template.git"
+  },
+  "keywords": [
+    "Parse",
+    "Server",
+    "SMTP",
+    "email",
+    "Template",
+    "easy",
+    "custome"
+  ],
+  "author": "Arturo Ortega Robles",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/macarthuror/parse-smtp-template/issues"
+  },
+  "homepage": "https://github.com/macarthuror/parse-smtp-template#readme"
+}
