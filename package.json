@@ -24,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/macarthuror/parse-smtp-template/issues"
   },
-  "homepage": "https://github.com/macarthuror/parse-smtp-template#readme"
+  "homepage": "https://github.com/macarthuror/parse-smtp-template#readme",
+  "dependencies": {
+    "nodemailer": "4.7.0"
+  }
 }
