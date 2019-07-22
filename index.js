@@ -109,6 +109,10 @@ var SmtpMailAdapter = mailOptions => {
                         ? passwordOptions.btn || "Reset Password" 
                         : confirmOptions.btn || "Confirm Email";
 
+        let options = mail.subject.indexOf("Password") !=-1 
+                        ? passwordOptions.others || {} 
+                        : confirmOptions.others || {};
+
         if (_templates) {
             filePath = path.join("./", _templatePath);
             template = eval('`' + fs.readFileSync(filePath).toString() + '`');
@@ -170,25 +174,31 @@ var SmtpMailAdapter = mailOptions => {
             throw "You need to add a template for the confirmation emails and pass the options";
         } else if(_multiLang && !mailOptions.multiLangConfirm) {
             throw "To use multiLang in the templates needs to pass the multiLangPass object with the translations";
+        } else if(!mailOptions.confirmOptions 
+                    || !mailOptions.confirmOptions.subject
+                    || !mailOptions.confirmOptions.body
+                    || !mailOptions.confirmOptions.btn) {
+            throw "You need to set the 'confirmOptions' object with subject, body and btn"
         }
 
         const user = data.user.attributes;
         const link = data.link;
         const appName = data.appName;
-        const options = mailOptions.confirmOptions;
+        const defOptions = mailOptions.confirmOptions;
+        const options = mailOptions.passwordOptions.others || {};
         const langOptions = mailOptions.multiLangConfirm[user.lang];
 
         let subject = (_multiLang && typeof langOptions !== 'undefined')
                         ? langOptions.subject
-                        : options.subject
+                        : defOptions.subject
 
         let body = (_multiLang && typeof langOptions !== 'undefined')
                         ? langOptions.body
-                        : options.body
+                        : defOptions.body
         
         let btn = (_multiLang && typeof langOptions !== 'undefined')
                         ? langOptions.btn
-                        : options.btn
+                        : defOptions.btn
 
         let filePath = path.join("./", mailOptions.confirmTemplatePath);
         let template = eval('`' + fs.readFileSync(filePath).toString() + '`');
@@ -245,25 +255,31 @@ var SmtpMailAdapter = mailOptions => {
             throw "You need to add a template for the password recovery emails";
         } else if(_multiLang && !mailOptions.multiLangPass) {
             throw "To use multiLang in the templates needs to pass the multiLangPass object with the translations"; 
-        }
+        } else if(!mailOptions.passwordOptions 
+            || !mailOptions.passwordOptions.subject
+            || !mailOptions.passwordOptions.body
+            || !mailOptions.passwordOptions.btn) {
+    throw "You need to set the 'passwordOptions' object with subject, body and btn"
+}
         
         const user = data.user.attributes;
         const link = data.link;
         const appName = data.appName;
-        const options = mailOptions.passwordOptions;
+        const defOptions = mailOptions.passwordOptions;
+        const options = mailOptions.passwordOptions.others || {};
         const langOptions = mailOptions.multiLangPass[user.lang];
 
         let subject = (_multiLang && typeof langOptions !== 'undefined')
                         ? langOptions.subject
-                        : options.subject
+                        : defOptions.subject
 
         let body = (_multiLang && typeof langOptions !== 'undefined')
                         ? langOptions.body
-                        : options.body
+                        : defOptions.body
         
         let btn = (_multiLang && typeof langOptions !== 'undefined')
                         ? langOptions.btn
-                        : options.btn
+                        : defOptions.btn
 
         let filePath = path.join("./", mailOptions.passwordTemplatePath);
         let template = eval('`' + fs.readFileSync(filePath).toString() + '`');

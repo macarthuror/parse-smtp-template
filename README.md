@@ -22,7 +22,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
+  <a href="https://github.com/macarthuror/parse-smtp-template">
     <img src="logo.png" alt="Logo" width="80" height="80" />
   </a>
 
@@ -31,6 +31,7 @@
   <p align="center">
     An easy way to send email templates via SMTP with your <a href="https://github.com/parse-community/parse-server">Parse Server</a>!
     <br />
+    <b>(Multi Language Support)</b>
     <br />
     <a href="https://github.com/macarthuror/parse-smtp-template/issues">Report Bug</a>
     ·
@@ -49,6 +50,9 @@
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
 * [Usage](#usage)
+  * [Simple template](#simple-template)
+  * [Multi template](#multi-template)
+  * [Multi language](#multi-languaje)
 * [Roadmap](#roadmap)
 * [Contributing](#contributing)
 * [License](#license)
@@ -62,9 +66,11 @@
 
 <!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
-This is a module maded it for Parse Server and an easy solution to send emails via SMTP with templates in HTML.
+This is a module made it for Parse Server and an easy solution to send emails via SMTP with templates in HTML, also with the posibility of use a multi language support for your templates.
 
-We recomend to use the [Cerberus](https://github.com/TedGoas/Cerberus) for the email templates.
+We recomend you to use the [Cerberus](https://github.com/TedGoas/Cerberus) project for the email templates.
+
+( if you know about other templates you can added )
 
 ### Built With
 
@@ -75,8 +81,7 @@ We recomend to use the [Cerberus](https://github.com/TedGoas/Cerberus) for the e
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+This module is a very simple solution and because of that you can get it up and running in a few minutes.
 
 ### Installation
 
@@ -90,7 +95,7 @@ yarn
 ```sh
 yarn add parse-smtp-template
 ```
-2. In your Parse Server add the configuration of your email account
+2. In your Parse Server add the configuration of the emailAdapter and fill the requeriments to connect with your email account
 
 ```
 var api = new ParseServer({
@@ -102,36 +107,45 @@ var api = new ParseServer({
             host: "smtp.mail.com",
             user: "name@domain.com",
             password: "SecurePassword",
-            fromAddress: 'app@domain.com',
-
-            // Optional Parameters
-            template: true,
-            templatePath: "views/templates/main.html",
-            passwordSubject: "A custom password recovery Subject",
-            confirmSubject: "A custom email confirmation Subject"
+            fromAddress: 'app@domain.com'
         }
     }
 })
 ```
-> Now is ready to use it!
+> Now is ready to use!
+
+--
+<br />
 
 3. (Optional) Config your email template 
 
-The templates have access to 4 parameters to send
+In this module you can choise to use a simple template (1 template for bouth emails) or multiTemplate (1 template per type of email)
+If you want to use the multi Language mode you need to set up the multi languaje mode.
+---
+
+---
+<!-- USAGE EXAMPLES -->
+## Usage
+Use it, it´s very easy 😎😃👌
+
+### Simple template
+
+This template is used to send bouth email (password recovery and email confirmation)
+
+The templates have access to 6 parameters :
 * link
-* username
+* btn
+* body
+* username 
 * appName
 * subject
 
-To use it you only need to write ${parameter} to use it on the email
+To use it you only need to write `${parameter}` on the template
 
 **IMPORTANT** -- **All the HTML file need to use only double quotes to avoid problems**
-
-<!-- USAGE EXAMPLES -->
-## Usage
-
-To use a custome template is necessary to select the correct file.
-In this example we are gonna use `template.html``
+---
+If you want a custome template is necessary to select the correct file.
+In this example we are gonna use `template.html`
 
 index.js
 ```
@@ -140,11 +154,32 @@ emailAdapter: {
   options: {
     ...
     template: true,
-    templatePath: "views/templates/template.html"
+    templatePath: "views/templates/template.html",
+
+    // Custome options to your emails
+    // You can add more options if you need
+    passwordOptions: {
+        subject: "Password recovery",
+        body: "Custome pasword recovery email body",
+        btn: "Recover your password"
+        /* --EXTRA PARAMETERS--
+        others: {
+          extraParameter
+        }
+        */
+    },
+    confirmOptions: {
+        subject: "E-mail confirmation",
+        body: "Custome email confirmation body",
+        btn: "confirm your email"
+    },
   }
 }
 
 ```
+> To use the extra parameters please use `${options.extraParameter}`
+
+
 directory
 ```
 project
@@ -174,8 +209,130 @@ project
 </tr>
 ...
 ```
-> You can look up the template is by default in the templates folder to get a better understanding
+> You can look up the template by default to get a better understanding
 
+--
+### Multi template
+
+This option is a better way to customize your emails because you are able to use a different template per type of email.
+
+This template have access to 4 parameters:
+* user _(all the info of the _User object)_
+* link
+* appName
+* options
+
+The __options__ parameter needs to have _subject, body_ and _btn_ like minimun
+
+
+index.js
+```
+emailAdapter: {
+  module: 'parse-smtp-template',
+  options: {
+    ...
+    multiTemplate: true,
+    confirmTemplatePath: "views/templates/confirmTemplate.html",
+    passwordTemplatePath: "views/templates/passwordTemplate.html",
+
+    // Custome options to your emails
+    // You can add as much as you need
+    passwordOptions: {
+        subject: "Password recovery",
+        body: "Custome pasword recovery email body",
+        btn: "Recover your password"
+        /* --EXTRA PARAMETERS--
+        others: {
+          extraParameter
+        }
+        */
+    },
+    confirmOptions: {
+        subject: "E-mail confirmation",
+        body: "Custome email confirmation body",
+        btn: "confirm your email"
+    },
+  }
+}
+```
+> To use the extra parameters please use ${options.extraParameter}
+
+--
+### Multi language
+
+To be able to use Multi languaje is necesary set true `multiTemplate` and `multiLang`.
+
+index.js
+```
+emailAdapter: {
+  module: 'parse-smtp-template',
+  options: {
+    ...
+    multiTemplate: true,
+    confirmTemplatePath: "views/templates/confirmTemplate.html",
+    passwordTemplatePath: "views/templates/passwordTemplate.html",
+    multiLang: true,
+    multiLangPass: {
+      es: {
+        subject: "Recuperación de Contraseña",
+        body: "Cuerpo del correo de recuperación de contrseña",
+        btn: "recupera tu contraseña"
+        /* --EXTRA PARAMETERS--
+        others: {
+          extraParameter
+        }
+        */
+      },
+      en: {
+        subject: "Password recovery",
+        body: "Password recovery email body",
+        btn: "Recover your password"
+      },
+      fr: {
+        subject: "Récupération du mot de passe",
+        body: "Corps de l'e-mail de récupération de mot de passe",
+        btn: "récupérer votre mot de passe"
+      }
+    },
+
+    multiLangConfirm: {
+      es: {
+        subject: "Confirmación de Correo",
+        body: "Cuerpo del correo de confirmación de correo",
+        btn: "confirma tu correo"
+      },
+      en: {
+        subject: "E-mail confirmation",
+        body: "Mail confirmation email body",
+        btn: "confirm your email"
+      },
+      fr: {
+        subject: "Mail de confirmation",
+        body: "Courriel de confirmation du corps de l'e-mail",
+        btn: "confirmez votre email"
+      }
+    },
+
+    // Default options if the lang of the user isn´t in some of the multiLanguage objects
+    passwordOptions: {
+        subject: "Password recovery",
+        body: "Custome pasword recovery email body",
+        btn: "Recover your password"
+        /* --EXTRA PARAMETERS--
+        others: {
+          extraParameter
+        }
+        */
+    },
+    confirmOptions: {
+        subject: "E-mail confirmation",
+        body: "Custome email confirmation body",
+        btn: "confirm your email"
+    },
+  }
+}
+```
+---
 <!-- ROADMAP -->
 ## Roadmap
 
