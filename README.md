@@ -52,7 +52,7 @@
 * [Usage](#usage)
   * [Simple template](#simple-template)
   * [Multi template](#multi-template)
-  * [Multi language](#multi-languaje)
+  * [Multi language](#multi-language)
 * [Roadmap](#roadmap)
 * [Contributing](#contributing)
 * [License](#license)
