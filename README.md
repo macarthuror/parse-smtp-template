@@ -119,9 +119,8 @@ var api = new ParseServer({
 
 3. (Optional) Config your email template 
 
-In this module you can choise to use a simple template (1 template for bouth emails) or multiTemplate (1 template per type of email)
-If you want to use the multi Language mode you need to set up the multi languaje mode.
----
+**In this module you can choise to use a simple template (1 template for bouth emails) or multiTemplate (1 template per type of email)
+If you want to use the multi Language mode you need to set up the multi languaje mode.**
 
 ---
 <!-- USAGE EXAMPLES -->
@@ -139,6 +138,7 @@ The templates have access to 6 parameters :
 * username 
 * appName
 * subject
+* options (optional)
 
 To use it you only need to write `${parameter}` on the template
 
@@ -216,11 +216,14 @@ project
 
 This option is a better way to customize your emails because you are able to use a different template per type of email.
 
-This template have access to 4 parameters:
-* user _(all the info of the _User object)_
+This template have access to 7 parameters:
+* user _(all the info of the User object)_
 * link
 * appName
-* options
+* subject
+* body
+* btn
+* options (optional)
 
 The __options__ parameter needs to have _subject, body_ and _btn_ like minimun
 
@@ -260,7 +263,11 @@ emailAdapter: {
 --
 ### Multi language
 
-To be able to use Multi languaje is necesary set true `multiTemplate` and `multiLang`.
+To be able to use Multi language is necesary set true `multiTemplate` and `multiLang`.
+
+**Also in necessary to add a column called _lang_ in your User object** 
+
+The _lang_ column and the object needs to have the same value.
 
 index.js
 ```js
