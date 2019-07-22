@@ -97,7 +97,7 @@ yarn add parse-smtp-template
 ```
 2. In your Parse Server add the configuration of the emailAdapter and fill the requeriments to connect with your email account
 
-```
+```js
 var api = new ParseServer({
     ...
     emailAdapter: {
@@ -148,7 +148,7 @@ If you want a custome template is necessary to select the correct file.
 In this example we are gonna use `template.html`
 
 index.js
-```
+```js
 emailAdapter: {
   module: 'parse-smtp-template',
   options: {
@@ -193,7 +193,7 @@ project
 |
 ```
 `template.html`
-```
+```html
 ...
 <tr>
   <td style="padding: 20px; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555;">
@@ -226,7 +226,7 @@ The __options__ parameter needs to have _subject, body_ and _btn_ like minimun
 
 
 index.js
-```
+```js
 emailAdapter: {
   module: 'parse-smtp-template',
   options: {
@@ -263,7 +263,7 @@ emailAdapter: {
 To be able to use Multi languaje is necesary set true `multiTemplate` and `multiLang`.
 
 index.js
-```
+```js
 emailAdapter: {
   module: 'parse-smtp-template',
   options: {
