@@ -91,7 +91,7 @@ var SmtpMailAdapter = mailOptions => {
     var sendMail = mail => {
         let link = mail.text.split("it:\n")[1];
         let appName = mail.subject.split("for ")[1];
-        let username = mail.text.split("username=")[1];
+        let username = decodeURIComponent(mail.text.split("username=")[1]);
         var filePath = "";
         var template = "";
         const confirmOptions = mailOptions.confirmOptions || {};
