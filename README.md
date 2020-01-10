@@ -33,6 +33,10 @@
     <br />
     <b>(Multi Language Support)</b>
     <br />
+    <a href="https://badge.fury.io/js/parse-smtp-template"><img src="https://badge.fury.io/js/parse-smtp-template.svg" alt="npm version" /></a>
+    <a href="https://www.npmjs.com/package/parse-smtp-template"><img src="https://img.shields.io/npm/dt/parse-smtp-template.svg" alt="total downloads" /></a>
+    <a href="https://www.npmjs.com/package/parse-smtp-template"><img src="https://img.shields.io/npm/dm/parse-smtp-template.svg" alt="monthly downloads" /></a>
+    <br />
     <a href="https://github.com/macarthuror/parse-smtp-template/issues">Report Bug</a>
     ·
     <a href="https://github.com/macarthuror/parse-smtp-template/issues">Request Feature</a>
