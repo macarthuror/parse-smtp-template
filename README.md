@@ -1,24 +1,6 @@
 <!--
-*** Thanks for checking out this README Template. If you have a suggestion that would
-*** make this better please fork the repo and create a pull request or simple open
-*** an issue with the tag "enhancement".
-*** Thanks again! Now go create something AMAZING! :D
+*** parse-smtp-template
 -->
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for build-url, contributors-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
-[![Build Status][build-shield]][build-url]
-[![Contributors][contributors-shield]][contributors-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
-
-
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
@@ -36,6 +18,9 @@
     <a href="https://badge.fury.io/js/parse-smtp-template"><img src="https://badge.fury.io/js/parse-smtp-template.svg" alt="npm version" /></a>
     <a href="https://www.npmjs.com/package/parse-smtp-template"><img src="https://img.shields.io/npm/dt/parse-smtp-template.svg" alt="total downloads" /></a>
     <a href="https://www.npmjs.com/package/parse-smtp-template"><img src="https://img.shields.io/npm/dm/parse-smtp-template.svg" alt="monthly downloads" /></a>
+    <br />
+    <a href="https://github.com/macarthuror/parse-smtp-template/graphs/contributors"><img src="https://img.shields.io/badge/contributors-1-orange.svg?style=flat-square" alt="contributors" /></a>
+    <a href="https://github.com/macarthuror/parse-smtp-template/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square" alt="license" /></a>
     <br />
     <a href="https://github.com/macarthuror/parse-smtp-template/issues">Report Bug</a>
     ·
@@ -383,17 +368,3 @@ Project Link: [https://github.com/macarthuror/parse-smtp-template](https://githu
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
 * [Cerberus](https://github.com/TedGoas/Cerberus)
-
-
-
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[build-shield]: https://img.shields.io/badge/build-passing-brightgreen.svg?style=flat-square
-[build-url]: #
-[contributors-shield]: https://img.shields.io/badge/contributors-1-orange.svg?style=flat-square
-[contributors-url]: https://github.com/macarthuror/parse-smtp-template/graphs/contributors
-[license-shield]: https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square
-[license-url]: https://choosealicense.com/licenses/mit
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/ortegaarturo
-[product-screenshot]: https://raw.githubusercontent.com/othneildrew/Best-README-Template/master/screenshot.png
