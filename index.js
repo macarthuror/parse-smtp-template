@@ -186,7 +186,8 @@ var SmtpMailAdapter = mailOptions => {
         const appName = data.appName;
         const defOptions = mailOptions.confirmOptions;
         const options = mailOptions.passwordOptions.others || {};
-        const langOptions = mailOptions.multiLangConfirm[user.lang];
+        const langOptions = mailOptions.multiLangConfirm
+            ? mailOptions.multiLangConfirm[user.lang] : {};
 
         let subject = (_multiLang && typeof langOptions !== 'undefined')
                         ? langOptions.subject
@@ -267,7 +268,8 @@ var SmtpMailAdapter = mailOptions => {
         const appName = data.appName;
         const defOptions = mailOptions.passwordOptions;
         const options = mailOptions.passwordOptions.others || {};
-        const langOptions = mailOptions.multiLangPass[user.lang];
+        const langOptions = mailOptions.multiLangPass
+            ? mailOptions.multiLangPass[user.lang] : {};
 
         let subject = (_multiLang && typeof langOptions !== 'undefined')
                         ? langOptions.subject
