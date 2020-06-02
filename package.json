@@ -1,10 +1,10 @@
 {
   "name": "parse-smtp-template",
-  "version": "2.0.2",
+  "version": "2.1.0",
   "description": "Parse Server Module to send emails via SMTP with a customizable template option and Multi Language",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test.js"
   },
   "repository": {
     "type": "git",
@@ -26,7 +26,7 @@
   },
   "homepage": "https://github.com/macarthuror/parse-smtp-template#readme",
   "dependencies": {
-    "nodemailer": "4.7.0"
+    "nodemailer": "6.4.8"
   },
   "devDependencies": {}
 }
