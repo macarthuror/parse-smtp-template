@@ -36,7 +36,8 @@ const nodemailer = require("nodemailer")
  * @param {String}    [confirmTemplatePath]     Path of the template file.
  * @param {String}    [passwordTemplatePath]    Path of the template file.
  * 
- * @param {boolean}   [multiLang]               When is True the emails can be send in different languages depending on the "lang" colum of the user object.
+ * @param {boolean}   [multiLang]               When is True the emails can be send in different languages depending on "multiLangColumn" of the user object.
+ * @param {boolean}   [multiLangColumn]         The name of the column where the language of the user is stored. Default is "lang".
  * @param {Object}    [multiLangPass]           Object with all the translations for the password recovery email.
  * @param {Object}    [multiLangConfirm]        Object with all the translations for the confirmation email.
  *
@@ -165,7 +166,8 @@ var SmtpMailAdapter = mailOptions => {
      * 
      * @param {String}     mailOptions.confirmTemplatePath      Path of the template file.
 
-     * @param {Boolean}    [_multiLang]                         If it's true you can send the emails in different languages (depending on the lang colum in the _User object).
+     * @param {Boolean}    [_multiLang]                         If it's true you can send the emails in different languages (depending on the "multiLangColumn" in the _User object).
+     * @param {Boolean}    [_multiLangColumn]                   The name of the column where the language of the user is stored. Default is "lang".
      * @param {Object}     [mailOptions.multiLangConfirm]       Object with all the translations.
      * 
      * @return
@@ -248,6 +250,7 @@ var SmtpMailAdapter = mailOptions => {
      * @param {String}     mailOptions.passwordTemplatePath     Path of the template file.
 
      * @param {Boolean}    [_multiLang]                         If it's true you can send the emails in different languages (depending on the lang colum in the _User object).
+     * @param {Boolean}    [_multiLangColumn]                   The name of the column where the language of the user is stored. Default is "lang".
      * @param {Object}     [mailOptions.multiLangPass]          Object with all the translations.
      *
      * @return
