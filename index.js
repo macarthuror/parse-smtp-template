@@ -51,6 +51,7 @@ var SmtpMailAdapter = mailOptions => {
     var _templatePath = mailOptions.templatePath || "";
     var _multiTemplate = mailOptions.multiTemplate || false;
     var _multiLang = mailOptions.multiLang || false;
+    var _multiLangColumn = mailOptions.multiLangColumn || "lang";
  
     var transport = nodemailer.createTransport({
         host: mailOptions.host,
@@ -187,7 +188,7 @@ var SmtpMailAdapter = mailOptions => {
         const defOptions = mailOptions.confirmOptions;
         const options = mailOptions.passwordOptions.others || {};
         const langOptions = mailOptions.multiLangConfirm
-            ? mailOptions.multiLangConfirm[user.lang] : {};
+            ? mailOptions.multiLangConfirm[user[_multiLangColumn]] : {};
 
         let subject = (_multiLang && typeof langOptions !== 'undefined')
                         ? langOptions.subject
@@ -269,7 +270,7 @@ var SmtpMailAdapter = mailOptions => {
         const defOptions = mailOptions.passwordOptions;
         const options = mailOptions.passwordOptions.others || {};
         const langOptions = mailOptions.multiLangPass
-            ? mailOptions.multiLangPass[user.lang] : {};
+            ? mailOptions.multiLangPass[user[_multiLangColumn]] : {};
 
         let subject = (_multiLang && typeof langOptions !== 'undefined')
                         ? langOptions.subject
