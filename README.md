@@ -252,11 +252,10 @@ emailAdapter: {
 --
 ### Multi language
 
-To be able to use Multi language is necesary set true `multiTemplate` and `multiLang`.
+To be able to use Multi language is necesary set `multiTemplate` and `multiLang` true and pass the column name where the language is stored in the `multiLangColumn` option. Default of `multiLangColumn` is `lang`.
 
-**Also in necessary to add a column called _lang_ in your User object** 
 
-The _lang_ column and the object needs to have the same value.
+_multiLangColumn_ and the object needs to have the same value.
 
 index.js
 ```js
@@ -268,6 +267,7 @@ emailAdapter: {
     confirmTemplatePath: "views/templates/confirmTemplate.html",
     passwordTemplatePath: "views/templates/passwordTemplate.html",
     multiLang: true,
+    multiLangColumn: "language", // Default is "lang".
     multiLangPass: {
       es: {
         subject: "Recuperación de Contraseña",
