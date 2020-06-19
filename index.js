@@ -167,7 +167,7 @@ var SmtpMailAdapter = mailOptions => {
      * @param {String}     mailOptions.confirmTemplatePath      Path of the template file.
 
      * @param {Boolean}    [_multiLang]                         If it's true you can send the emails in different languages (depending on the "multiLangColumn" in the _User object).
-     * @param {Boolean}    [_multiLangColumn]                   The name of the column where the language of the user is stored. Default is "lang".
+     * @param {String}     [_multiLangColumn]                   The name of the column where the language of the user is stored. Default is "lang".
      * @param {Object}     [mailOptions.multiLangConfirm]       Object with all the translations.
      * 
      * @return
@@ -250,7 +250,7 @@ var SmtpMailAdapter = mailOptions => {
      * @param {String}     mailOptions.passwordTemplatePath     Path of the template file.
 
      * @param {Boolean}    [_multiLang]                         If it's true you can send the emails in different languages (depending on the lang colum in the _User object).
-     * @param {Boolean}    [_multiLangColumn]                   The name of the column where the language of the user is stored. Default is "lang".
+     * @param {String}     [_multiLangColumn]                   The name of the column where the language of the user is stored. Default is "lang".
      * @param {Object}     [mailOptions.multiLangPass]          Object with all the translations.
      *
      * @return
