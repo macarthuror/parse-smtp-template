@@ -20,6 +20,16 @@
     "custome"
   ],
   "author": "Arturo Ortega Robles",
+  "contributors": [
+    {
+      "name": "Vincent Semrau",
+      "url": "https://github.com/vince1995"
+    },
+    {
+      "name": "Riccardo Chiarini",
+      "url": "https://github.com/riccardoch"
+    }
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/macarthuror/parse-smtp-template/issues"
