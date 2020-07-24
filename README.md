@@ -334,7 +334,22 @@ emailAdapter: {
 
 See the [open issues](https://github.com/macarthuror/parse-smtp-template/issues) for a list of proposed features (and known issues).
 
+<!-- CONTRIBUTORS -->
+## Contributors
 
+<table>
+  <tr>
+    <td>
+      <a href="https://github.com/macarthuror"><img src="https://avatars1.githubusercontent.com/u/24395219?s=460&u=86abbb8c126b1300cdcfc9ba7a46724256112901&v=4" title="macarthuror" width="80" height="80"></a>
+    </td>
+    <td>
+      <a href="https://github.com/vince1995"><img src="https://avatars2.githubusercontent.com/u/15120985?s=460&v=4" title="vince1995" width="80" height="80"></a>
+    </td>
+    <td>
+      <a href="https://github.com/riccardoch"><img src="https://avatars2.githubusercontent.com/u/3284977?s=460&u=d8f319d1c64f1dcb70c463cd47c9c07d99d2ca0f&v=4" title="riccardoch" width="80" height="80"></a>
+    </td>
+  </tr>
+</table>
 
 <!-- CONTRIBUTING -->
 ## Contributing
