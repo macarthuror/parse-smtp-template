@@ -4,7 +4,11 @@
   "description": "Parse Server Module to send emails via SMTP with a customizable template option and Multi Language",
   "main": "index.js",
   "scripts": {
-    "test": "node test.js"
+    "build": "tsc",
+    "dev": "nodemon",
+    "test": "jest",
+    "test:w": "jest --watchAll",
+    "test:w:c": "jest --watchAll --verbose false"
   },
   "repository": {
     "type": "git",
