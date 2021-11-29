@@ -8,7 +8,8 @@
     "dev": "nodemon",
     "test": "jest",
     "test:w": "jest --watchAll",
-    "test:w:c": "jest --watchAll --verbose false"
+    "test:w:c": "jest --watchAll --verbose false",
+    "publish": "npm run build && npm publish"
   },
   "repository": {
     "type": "git",
@@ -39,6 +40,9 @@
     "url": "https://github.com/macarthuror/parse-smtp-template/issues"
   },
   "homepage": "https://github.com/macarthuror/parse-smtp-template#readme",
+  "peerDependencies": {
+    "parse-server": "^2.x"
+  },
   "dependencies": {
     "nodemailer": "6.6.0"
   },
