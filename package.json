@@ -2,7 +2,7 @@
   "name": "parse-smtp-template",
   "version": "2.2.0",
   "description": "Parse Server Module to send emails via SMTP with a customizable template option and Multi Language",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
     "dev": "nodemon",
@@ -45,6 +45,7 @@
   "devDependencies": {
     "@types/jest": "^27.0.3",
     "@types/node": "^16.11.10",
+    "@types/nodemailer": "^6.4.4",
     "consola": "^2.15.3",
     "jest": "^27.3.1",
     "nodemon": "^2.0.15",
