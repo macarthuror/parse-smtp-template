@@ -37,7 +37,6 @@ describe('required options', () => {
       expect(() => smtp({...invalidAddress, fromAddress: '.mail@domain.com'})).toThrow('Invalid From Address')
       expect(() => smtp({...invalidAddress, fromAddress: '-mail@domain.com'})).toThrow('Invalid From Address')
       expect(() => smtp({...invalidAddress, fromAddress: 'mail..name@domain.com'})).toThrow('Invalid From Address')
-      expect(() => smtp({...invalidAddress, fromAddress: 'mail.name@domain.com'})).toThrow('Invalid From Address')
   })
 
 })
