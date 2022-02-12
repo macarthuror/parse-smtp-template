@@ -17,6 +17,7 @@
     <br />
     <a href="https://www.npmjs.com/package/parse-smtp-template"><img src="https://badge.fury.io/js/parse-smtp-template.svg" alt="npm version" /></a>
     <a href="https://www.npmjs.com/package/parse-smtp-template"><img src="https://img.shields.io/npm/dt/parse-smtp-template.svg" alt="total downloads" /></a>
+<a href="https://app.fossa.com/projects/git%2Bgithub.com%2Fmacarthuror%2Fparse-smtp-template?ref=badge_shield" alt="FOSSA Status"><img src="https://app.fossa.com/api/projects/git%2Bgithub.com%2Fmacarthuror%2Fparse-smtp-template.svg?type=shield"/></a>
     <a href="https://www.npmjs.com/package/parse-smtp-template"><img src="https://img.shields.io/npm/dm/parse-smtp-template.svg" alt="monthly downloads" /></a>
     <br />
     <a href="https://github.com/macarthuror/parse-smtp-template/graphs/contributors"><img src="https://img.shields.io/badge/contributors-1-orange.svg?style=flat-square" alt="contributors" /></a>
@@ -31,6 +32,9 @@
 
 
 <!-- TABLE OF CONTENTS -->
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fmacarthuror%2Fparse-smtp-template.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fmacarthuror%2Fparse-smtp-template?ref=badge_large)
+
 ## Table of Contents
 
 * [About the Project](#about-the-project)
