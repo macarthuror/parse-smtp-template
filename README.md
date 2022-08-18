@@ -355,6 +355,9 @@ See the [open issues](https://github.com/macarthuror/parse-smtp-template/issues)
     <td>
       <a href="https://github.com/isokosan"><img src="https://avatars2.githubusercontent.com/u/1430946?s=460&u=d8f319d1c64f1dcb70c463cd47c9c07d99d2ca0f&v=4" title="isokosan" width="80" height="80"></a>
     </td>
+    <td>
+      <a href="https://github.com/oproulx"><img src="https://avatars.githubusercontent.com/u/5933387?v=4" title="oproulx" width="80" height="80"></a>
+    </td>
   </tr>
 </table>
 
