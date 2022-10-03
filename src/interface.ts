@@ -6,7 +6,7 @@ interface TemplateOptions {
   subject: string;
   body: string;
   btn: string;
-  others: Others;
+  others?: Others;
 }
 
 interface MultiLangOptions {
@@ -37,4 +37,13 @@ export interface MainOptions {
   // Multi language template variables
   multiLangPass?: MultiLangOptions;
   multiLangConfirm?:MultiLangOptions;
+}
+
+/**
+ * Sends
+ */
+export interface MailOptions {
+  to: string,
+  text: string,
+  subject: string
 }
