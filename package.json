@@ -1,6 +1,6 @@
 {
   "name": "parse-smtp-template",
-  "version": "2.2.0",
+  "version": "3.0.0",
   "description": "Parse Server Module to send emails via SMTP with a customizable template option and Multi Language",
   "main": "dist/index.js",
   "scripts": {
@@ -24,7 +24,10 @@
     "easy",
     "custome"
   ],
-  "author": "Arturo Ortega Robles",
+  "author": {
+    "name": "Arturo Ortega",
+    "url": "https://github.com/macarthuror"
+  },
   "contributors": [
     {
       "name": "Vincent Semrau",
@@ -33,6 +36,14 @@
     {
       "name": "Riccardo Chiarini",
       "url": "https://github.com/riccardoch"
+    },
+    {
+      "name": "Deniz Genctürk",
+      "url": "https://github.com/isokosan"
+    },
+    {
+      "name": "oproulx",
+      "url": "https://github.com/oproulx"
     }
   ],
   "license": "MIT",
@@ -47,7 +58,7 @@
     "nodemailer": "6.6.0"
   },
   "devDependencies": {
-    "@types/jest": "^27.0.3",
+    "@types/jest": "^27.5.2",
     "@types/node": "^16.11.10",
     "@types/nodemailer": "^6.4.4",
     "@typescript-eslint/eslint-plugin": "^5.4.0",
