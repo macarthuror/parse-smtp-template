@@ -3,8 +3,8 @@ import smtp from '../src/index'
 describe('required options', () => {
 
   const options = {
-    port: 100,
-    host: 'api.host.com',
+    port: 587,
+    host: 'smtp.ethereal.email',
     user: 'username',
     password: 'password',
     fromAddress: 'name@test.com'

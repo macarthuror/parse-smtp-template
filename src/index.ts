@@ -1,9 +1,11 @@
 import { join } from 'path';
 import { readFileSync } from 'fs';
-import { createTransport, SentMessageInfo } from 'nodemailer';
+import { createTransport } from 'nodemailer';
 
-import { MailOptions, MainOptions } from './interface';
 import { validateOptions } from './Utils/validation';
+import { MailOptions, MainOptions, TransportOptions } from './interface';
+
+const isTestingEnv = process.env.NODE_ENV === 'test';
 
 const defaultOptions: Pick<MainOptions,
   'secure'|
@@ -33,7 +35,8 @@ const defaultOptions: Pick<MainOptions,
   }
 };
 
-export default (mainOptions: MainOptions) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export default (mainOptions: MainOptions, testingCallback?: (v: any) => any) => {
   validateOptions(mainOptions);
 
   const smtpOptions: MainOptions = {
@@ -56,7 +59,7 @@ export default (mainOptions: MainOptions) => {
   /**
    * Generic Sender
    */
-  const sendMail = (mail: MailOptions): Promise<SentMessageInfo | void> => {
+  const sendMail = (mail: MailOptions): Promise<void> => {
     const [,link] = mail.text.split('it:\n');
     const [,appName] = mail.subject.split('for ');
     const username = decodeURIComponent(mail.text.split('username=')[1]);
@@ -79,14 +82,20 @@ export default (mainOptions: MainOptions) => {
         template = eval('`' + readFileSync(filePath).toString() + '`');
     }
 
-    return transport.sendMail({
+    const transportOptions: TransportOptions = {
       subject,
       to: mail.to,
       from: smtpOptions.fromAddress,
       html: template
-    })
-      .then((info) => {
-        return info
+    }
+
+    if (isTestingEnv && testingCallback) {
+      testingCallback(transportOptions)
+    }
+
+    return transport.sendMail(transport)
+      .then(() => {
+        return
       })
       .catch(error => {
         throw error

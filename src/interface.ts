@@ -42,8 +42,15 @@ export interface MainOptions {
 /**
  * Sends
  */
+export interface TransportOptions {
+  to: string;
+  html: string;
+  from: string;
+  subject: string;
+}
+
 export interface MailOptions {
-  to: string,
-  text: string,
-  subject: string
+  to: string;
+  text: string;
+  subject: string;
 }
